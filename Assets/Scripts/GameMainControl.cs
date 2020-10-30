@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameMainControl : MonoBehaviour
 {
     // アドベンチャーテキスト
-    [SerializeField]private Text MassageText;
+    [SerializeField] private Text MassageText;
     // カウントの最大値
     [SerializeField] private float DispTimeMax = 0.1f;
 
@@ -20,7 +20,7 @@ public class GameMainControl : MonoBehaviour
     void Start()
     {
         // メッセージエリアを初期化
-        MassageText.text = " ";  
+        MassageText.text = " ";
     }
 
     // Update is called once per frame
