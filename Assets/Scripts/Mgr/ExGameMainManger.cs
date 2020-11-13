@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
+using DG.Tweening;
 
 public class ExGameMainManger : MonoBehaviour
 {
@@ -14,7 +16,7 @@ public class ExGameMainManger : MonoBehaviour
     // 文字の表示速度タイマー用
     [SerializeField] private float fontStepTimer = 0.1f;
     // 表示開始座標
-    [SerializeField] private Vector2 startPosition = Vector2.zero;
+    [SerializeField] private Vector2 startPosition = default(Vector2);
     // 横の文字数
     [SerializeField] private int wideStringLengthMax = 30;
     // 文字関係
@@ -36,12 +38,6 @@ public class ExGameMainManger : MonoBehaviour
     // 文字表示終了フラグ変数
     private bool isDiplayEnd = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -61,6 +57,9 @@ public class ExGameMainManger : MonoBehaviour
             // すべての文字オブジェクトの重量を有効化する
             messageFonts.ForEach(msg =>
                 msg.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic);
+            // 一定時間後にフェードアウト
+            messageFonts.ForEach(msg =>
+                msg.GetComponent<OnceTextView>().FadeOutText(5));
         }
     }
 
@@ -93,9 +92,16 @@ public class ExGameMainManger : MonoBehaviour
     /// <param name="pos"></param>
     private void SetFonts(string msg, Vector2 pos)
     {
+        // 一文字表示するためのオブジェクトをスクリーンに作成する
+        // (ヒエラルキーとして親を messageWindow に設定を行う)
         var oneTextFont = Instantiate(oneTextPrefab, parent);
+        // 生成したオブジェクトを指定された座標に配置を行う
         oneTextFont.GetComponent<RectTransform>().localPosition = pos;
+        // 生成したテキストオブジェクトに1文字表示する
         oneTextFont.GetComponent<Text>().text = msg;
+        // 文字フェードイン実行処理
+        oneTextFont.GetComponent<OnceTextView>().FadeInOnceText();
+        // 物理挙動を制御するためにリストに追加
         messageFonts.Add(oneTextFont);
     }
 
@@ -106,6 +112,6 @@ public class ExGameMainManger : MonoBehaviour
     private Vector2 GetDispPosition()
     {
         return new Vector2(startPosition.x + (currentPosition % wideStringLengthMax) * widePadding,
-            startPosition.y + (currentPosition / wideStringLengthMax) * heightPadding);
+            startPosition.y - (currentPosition / wideStringLengthMax) * heightPadding);
     }
 }

@@ -1,0 +1,13 @@
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\bin\Debug\AdvScriptTool.exe.config
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\bin\Debug\AdvScriptTool.exe
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\bin\Debug\AdvScriptTool.pdb
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.csprojAssemblyReference.cache
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.Form1.resources
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.Properties.Resources.resources
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.csproj.GenerateResource.cache
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.csproj.CoreCompileInputs.cache
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.exe
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.pdb
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\bin\Debug\Newtonsoft.Json.dll
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\bin\Debug\Newtonsoft.Json.xml
+C:\Users\student\Desktop\goto\AdvTool\AdvScriptTool\obj\Debug\AdvScriptTool.csproj.CopyComplete
