@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.VersionControl;
 using UnityEngine;
@@ -59,7 +58,7 @@ public class ExGameMainManger : MonoBehaviour
                 msg.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic);
             // 一定時間後にフェードアウト
             messageFonts.ForEach(msg =>
-                msg.GetComponent<OnceTextView>().FadeOutText(5));
+                msg.GetComponent<OnceTextView>().FadeOutText(FadeOutTextTime(), DestroyOneText));
         }
     }
 
@@ -113,5 +112,23 @@ public class ExGameMainManger : MonoBehaviour
     {
         return new Vector2(startPosition.x + (currentPosition % wideStringLengthMax) * widePadding,
             startPosition.y - (currentPosition / wideStringLengthMax) * heightPadding);
+    }
+
+    /// <summary>
+    /// 指定されたゲームオブジェクトを削除するコールバック関数
+    /// </summary>
+    /// <param name="gObj"></param>
+    private void DestroyOneText(GameObject gObj)
+    {
+        Destroy(gObj);
+    }
+
+    /// <summary>
+    /// フェードアウトするまでの時間習得関数
+    /// </summary>
+    /// <returns></returns>
+    private float FadeOutTextTime(float max, float min)
+    {
+        Random.Range(max, min);
     }
 }

@@ -9,6 +9,14 @@ public class OnceTextView : MonoBehaviour
     [SerializeField] float fadeInTimer = 0.1f;
     [SerializeField] float fadeOutTimer = 0.3f;
 
+    // コールバック関数
+    private System.Action<GameObject> callback = null;
+
+    private void Awake()
+    {
+        onceCanvas = GetComponent<CanvasGroup>();
+    }
+
     /// <summary>
     /// 文字フェードイン用関数
     /// </summary>
@@ -45,19 +53,21 @@ public class OnceTextView : MonoBehaviour
     /// フェードアウト呼び出し関数
     /// </summary>
     /// <retun delayTime>待機時間引数</retun>
-    public void FadeOutText(float delayTime = 0.0f)
+    public void FadeOutText(float delayTime = 0.0f, System.Action<GameObject> callback = null)
     {
+        // コールバック関数を登録
+        this.callback = callback;
         // FadeOutText関数が呼ばれた時onceCanvas変数の透明度を1.0fに変更
         onceCanvas.alpha = 1.0f;
         // FadeOut関数をコルーチン呼び出し
-        StartCoroutine(FadeOut(delayTime));
+        StartCoroutine(FadeOutIE(delayTime));
     }
 
     /// <summary>
     /// フェードアウト処理関数
     /// </summary>
     /// <retun delayTime>待機時間引数</retun>
-    private IEnumerator FadeOut(float delayTime = 0.0f)
+    private IEnumerator FadeOutIE(float delayTime = 0.0f, System.Action<GameObject> callback = null)
     {
         // 引数delayTime分時間を止める
         yield return new WaitForSeconds(delayTime);
@@ -73,6 +83,11 @@ public class OnceTextView : MonoBehaviour
             }
             // 1フレーム待機しFadeIn関数に値を返す
             yield return null;
+        }
+        // コールバック関数が登録されていたら呼び出す
+        if (null != this.callback)
+        {
+            this.callback(gameObject);
         }
     }
 }

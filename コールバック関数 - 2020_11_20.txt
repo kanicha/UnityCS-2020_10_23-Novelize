@@ -1,0 +1,55 @@
+コールバック関数 - 2020_11_20
+
+System.Action コールバック関数
+System.Action<変数の型> コールバック関数
+System.Action<変数の型, 変数の型> コールバック関数
+
+--------------------------------------------------
+// 基本的にはnullで扱われることが多い
+System.Action callback = null;
+
+void update()
+{
+    callback();
+}
+
+// 使用例
+System.Action callback = funcTest;
+
+// callback にfuncTestを代入
+callback = funcTest;
+// アップデートを行う
+update();
+// callback に funcWave を代入
+callback = funcWave;
+// アップデートを行う
+update();
+
+// これを行うことでSystem.Action 一つで関数2つを
+    切り替えながら使用することができる
+
+void funcTest(void)
+{
+
+}
+
+void funcWave(void)
+{
+
+}
+
+--------------------------------------------------
+
+System.Action<変数の型> コールバック関数(引数による型指定あり)
+
+System.Action<変数の型> callback = 関数名;
+
+void 関数名(変数の型)
+{
+
+}
+
+void 関数名(変数の型)
+{
+
+}
