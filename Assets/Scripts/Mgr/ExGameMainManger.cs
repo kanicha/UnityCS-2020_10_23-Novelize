@@ -58,7 +58,7 @@ public class ExGameMainManger : MonoBehaviour
                 msg.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic);
             // 一定時間後にフェードアウト
             messageFonts.ForEach(msg =>
-                msg.GetComponent<OnceTextView>().FadeOutText(FadeOutTextTime(), DestroyOneText));
+                msg.GetComponent<OnceTextView>().FadeOutText(10f, DestroyOneText));
         }
     }
 
@@ -127,8 +127,8 @@ public class ExGameMainManger : MonoBehaviour
     /// フェードアウトするまでの時間習得関数
     /// </summary>
     /// <returns></returns>
-    private float FadeOutTextTime(float max, float min)
-    {
-        Random.Range(max, min);
-    }
+    //private float FadeOutTextTime(float max, float min)
+    //{
+    //    Random.Range(max, min);
+    //}
 }

@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication.ExtendedProtection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +12,8 @@ public class GameMainControl : MonoBehaviour
     // カウントの最大値
     [SerializeField] private float DispTimeMax = 0.1f;
 
-    [SerializeField] private Rigidbody2D OneText;
     // メッセージウィンドウに出すためのstring型変数
-    private string _massagetext = "教室に人があふれる学校、教室に入り" + "\n僕は息をのみ挨拶をした。";
+    private string _massagetext = " ";
     // 文字の表示数
     private int dispCounter = 0;
 
@@ -21,6 +22,12 @@ public class GameMainControl : MonoBehaviour
     {
         // メッセージエリアを初期化
         MassageText.text = " ";
+        // ファイルからファイルリソース読み込み
+        TextAsset textAsset = Resources.Load("Datas/Scenario", typeof(TextAsset)) as TextAsset;
+        _massagetext = textAsset.text;
+        // シナリオ読み込み
+        //ScenarioDataCtl.InitScenarioData(_massagetext);
+        //string scenario = ScenarioDataCtl.LoadMessgae();
     }
 
     // Update is called once per frame
@@ -30,11 +37,6 @@ public class GameMainControl : MonoBehaviour
         {
             // コルーチンを使用し呼び出し
             StartCoroutine(DispFont());
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            // 右クリックしたときに kinematic を Dynamicに変換
-            OneText.bodyType = RigidbodyType2D.Dynamic;
         }
     }
 

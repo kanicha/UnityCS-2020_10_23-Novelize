@@ -1,0 +1,4 @@
+﻿{"name":"message","msgCount":1,"msg":["毎日毎日、電車をつかい会社に僕は向かう"]}
+{"name":"message","msgCount":1,"msg":["僕は一生このままかもしれないと思っている"]}
+{"name":"message","msgCount":1,"msg":["まあ、人生ってそんなもんかと思う"]}
+{"name":"message","msgCount":1,"msg":["腹減ったなぁ...そんな顔しながら僕は青い空を見た。"]}

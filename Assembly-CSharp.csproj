@@ -59,7 +59,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Mgr\ExGameMainManger.cs" />
     <Compile Include="Assets\Scripts\Mgr\GameMainControl.cs" />
+    <Compile Include="Assets\Scripts\Mgr\ScenarioDataCtl.cs" />
+    <Compile Include="Assets\Scripts\Models\MessageModel.cs" />
+    <Compile Include="Assets\Scripts\Models\ScenarioModel.cs" />
     <Compile Include="Assets\Scripts\Moving\OnceTextView.cs" />
+    <None Include="Assets\Resources\Datas\scenario.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/student/Documents/UnityCS-2020_10_23-Novelize/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
