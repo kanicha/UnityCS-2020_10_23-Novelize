@@ -12,4 +12,6 @@ public class ScenarioModel
     // シナリオを配列管理を行う
     [SerializeField]
     public string[] scenario;
+    // 最大行数取得(ゲッター)
+    public int MaxLineCount { get { return scenario.Length; } }
 }

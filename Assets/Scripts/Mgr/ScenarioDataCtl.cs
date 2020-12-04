@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScenarioDataCtl : MonoBehaviour
+public class ScenarioDataCtl
 {
     // シナリオデータ保存場所関数呼び出し宣言
     private ScenarioModel scenarioModel = new ScenarioModel();
@@ -14,7 +14,7 @@ public class ScenarioDataCtl : MonoBehaviour
     public void InitScenarioData(string scenarioText)
     {
         // テキストを改行で区切る
-        var scList = scenarioText.Split('\n');
+        scenarioModel.scenario = scenarioText.Split('\n');
         // 行の先頭を選択するように初期化
         scenarioModel.nowSelectLine = 0;
     }
@@ -22,14 +22,23 @@ public class ScenarioDataCtl : MonoBehaviour
     /// <summary>
     /// メッセージ習得関数
     /// </summary>
-    /// <returns>メッセージリスト</returns>
-    public List<string> LoadScenarioMsg()
+    /// <returns>テキスト表示文字習得</returns>
+    public string LoadScenarioMsg()
     {
         // 1行を読みこむ
         var msg = scenarioModel.scenario[scenarioModel.nowSelectLine++];
         // Json形式を定義したMessageModelクラスデータに変換を行う
         var messages = JsonUtility.FromJson<MessageModel>(msg);
         // 習得したメッセージをリターンで返す
-        return messages.msg;
+        return messages.GetMessage();
+    }
+
+    /// <summary>
+    /// 最後の行達成判断関数
+    /// </summary>
+    /// <returns>最後の行に達していればreturn</returns>
+    public bool IsEndLine()
+    {
+        if (scenarioModel.MaxLineCount == scenarioModel.nowSelectLine) ;
     }
 }
