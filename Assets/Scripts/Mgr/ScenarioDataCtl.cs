@@ -39,6 +39,6 @@ public class ScenarioDataCtl
     /// <returns>最後の行に達していればreturn</returns>
     public bool IsEndLine()
     {
-        if (scenarioModel.MaxLineCount == scenarioModel.nowSelectLine) ;
+        return (scenarioModel.MaxLineCount == scenarioModel.nowSelectLine) ;
     }
 }
